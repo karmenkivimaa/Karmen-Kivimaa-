@@ -7,10 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Abc.Infra
 {
+
     public abstract class FilteredRepository<TDomain, TData> : SortedRepository<TDomain, TData>, IFiltering
         where TData : PeriodData, new()
         where TDomain : Entity<TData>, new()
     {
+
         public string SearchString { get; set; }
         public string FixedFilter { get; set; }
         public string FixedValue { get; set; }
@@ -32,10 +34,10 @@ namespace Abc.Infra
             return expression is null ? query : query.Where(expression);
         }
 
-        private Expression<Func<TData, bool>> createFixedWhereExpression()
+        internal Expression<Func<TData, bool>> createFixedWhereExpression()
         {
-            if (FixedFilter is null) return null;
-            if (FixedValue is null) return null;
+            if (string.IsNullOrWhiteSpace(FixedValue)) return null;
+            if (string.IsNullOrWhiteSpace(FixedFilter)) return null;
             var param = Expression.Parameter(typeof(TData), "s");
 
             var p = typeof(TData).GetProperty(FixedFilter);
@@ -44,9 +46,7 @@ namespace Abc.Infra
             Expression body = Expression.Property(param, p);
             if (p.PropertyType != typeof(string))
                 body = Expression.Call(body, "ToString", null);
-            body = Expression.Equal(
-                body,
-                Expression.Constant(FixedValue));
+            body = Expression.Call(body, "Contains", null, Expression.Constant(FixedValue));
             var predicate = body;
 
             return Expression.Lambda<Func<TData, bool>>(predicate, param);
@@ -61,8 +61,9 @@ namespace Abc.Infra
 
         internal Expression<Func<TData, bool>> createWhereExpression()
         {
+            if (string.IsNullOrWhiteSpace(SearchString)) return null;
             var param = Expression.Parameter(typeof(TData), "s");
-            
+
             Expression predicate = null;
 
             foreach (var p in typeof(TData).GetProperties())
@@ -76,5 +77,7 @@ namespace Abc.Infra
 
             return predicate is null ? null : Expression.Lambda<Func<TData, bool>>(predicate, param);
         }
+
     }
+
 }

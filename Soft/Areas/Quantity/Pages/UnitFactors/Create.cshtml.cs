@@ -15,7 +15,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.UnitFactors
         public CreateModel(IUnitFactorRepository r, IUnitsRepository u, ISystemOfUnitsRepository s) : base(r)
         {
             Units = createSelectList<Unit, UnitData>(u);
-            SystemOfUnits = createSelectList<SystemOfUnits, SystemOfUnitsData>(s);
+            SystemOfUnits = createSelectList<Domain.Quantity.SystemOfUnits, SystemOfUnitsData>(s);
         }
 
         public IEnumerable<SelectListItem> SystemOfUnits { get; }
