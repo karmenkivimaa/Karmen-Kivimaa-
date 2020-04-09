@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
 
-    public class EditModel : SystemOfUnitsPage
+    public class EditModel : MeasuresPage
     {
 
         public EditModel(IMeasureRepository r) : base(r) { }

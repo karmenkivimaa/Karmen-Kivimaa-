@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
 
-    public class DeleteModel : SystemOfUnitsPage
+    public class DeleteModel : MeasuresPage
     {
 
         public DeleteModel(IMeasureRepository r) : base(r) { }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
 
-    public class CreateModel : SystemOfUnitsPage
+    public class CreateModel : MeasuresPage
     {
 
         public CreateModel(IMeasureRepository r) : base(r) { }

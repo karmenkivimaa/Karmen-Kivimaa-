@@ -5,10 +5,10 @@ using Abc.Facade.Quantity;
 namespace Abc.Pages.Quantity
 {
 
-    public abstract class SystemOfUnitsPage : CommonPage<IMeasureRepository, Measure, MeasureView, MeasureData>
+    public abstract class MeasuresPage : CommonPage<IMeasureRepository, Measure, MeasureView, MeasureData>
     {
 
-        protected internal SystemOfUnitsPage(IMeasureRepository r) : base(r)
+        protected internal MeasuresPage(IMeasureRepository r) : base(r)
         {
             PageTitle = "Measures";
         }

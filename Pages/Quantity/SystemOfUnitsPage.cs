@@ -5,10 +5,10 @@ using Abc.Facade.Quantity;
 namespace Abc.Pages.Quantity 
 {
 
-    public class SystemsOfUnitsPage : CommonPage<ISystemOfUnitsRepository, SystemOfUnits, SystemOfUnitsView, SystemOfUnitsData>
+    public class SystemOfUnitsPage : CommonPage<ISystemOfUnitsRepository, SystemOfUnits, SystemOfUnitsView, SystemOfUnitsData>
     {
 
-        protected internal SystemsOfUnitsPage(ISystemOfUnitsRepository r) : base(r) 
+        protected internal SystemOfUnitsPage(ISystemOfUnitsRepository r) : base(r) 
         {
             PageTitle = "System Of Units";
         }

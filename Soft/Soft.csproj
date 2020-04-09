@@ -55,23 +55,23 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Quantity\Pages\SystemsOfUnits\Create.cshtml">
+    <Content Update="Areas\Quantity\Pages\SystemOfUnits\Create.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Quantity\Pages\SystemsOfUnits\Delete.cshtml">
+    <Content Update="Areas\Quantity\Pages\SystemOfUnits\Delete.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Quantity\Pages\SystemsOfUnits\Details.cshtml">
+    <Content Update="Areas\Quantity\Pages\SystemOfUnits\Details.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Quantity\Pages\SystemsOfUnits\Edit.cshtml">
+    <Content Update="Areas\Quantity\Pages\SystemOfUnits\Edit.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="Areas\Quantity\Pages\SystemsOfUnits\Index.cshtml">
+    <Content Update="Areas\Quantity\Pages\SystemOfUnits\Index.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

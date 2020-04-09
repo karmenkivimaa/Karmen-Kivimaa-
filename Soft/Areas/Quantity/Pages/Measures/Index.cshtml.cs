@@ -4,7 +4,7 @@ using Abc.Pages.Quantity;
 
 namespace Abc.Soft.Areas.Quantity.Pages.Measures
 {
-    public class IndexModel : SystemOfUnitsPage
+    public class IndexModel : MeasuresPage
     {
 
         public IndexModel(IMeasureRepository r) : base(r)
