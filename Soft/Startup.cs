@@ -34,6 +34,10 @@ namespace Abc.Soft
             services.AddRazorPages();
             services.AddScoped<IMeasureRepository, MeasureRepository>();
             services.AddScoped<IUnitsRepository, UnitsRepository>();
+            services.AddScoped<IUnitTermsRepository, UnitTermsRepository>();
+            services.AddScoped<IMeasureTermsRepository, MeasureTermsRepository>();
+            services.AddScoped<ISystemOfUnitsRepository, SystemOfUnitsRepository>();
+            services.AddScoped<IUnitFactorRepository, UnitFactorsRepository>();
             services.AddServerSideBlazor();
 
         }

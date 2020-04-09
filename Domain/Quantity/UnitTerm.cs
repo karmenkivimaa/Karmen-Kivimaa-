@@ -3,10 +3,10 @@ using Abc.Domain.Common;
 
 namespace Abc.Domain.Quantity
 {
-    public sealed class UnitTerm : Entity<UnitData>
+    public sealed class UnitTerm : Entity<UnitTermData>
     {
-        public UnitTerm(UnitTermData d) : this(null) { }
-        public UnitTerm(UnitData data) : base(data) { }
+        public UnitTerm() : this(null) { }
+        public UnitTerm(UnitTermData data) : base(data) { }
     }
 
 }

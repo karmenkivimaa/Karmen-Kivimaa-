@@ -6,6 +6,7 @@
     Layout = "_Details";
 }
 
+
 <body>
     @Html.DisplayControlsFor(m => m.Item.MeasureId, Model.GetMeasureName(Model.Item.MeasureId))
     @Html.DisplayControlsFor(m => m.Item.Code)
@@ -15,4 +16,4 @@
     @Html.DisplayControlsFor(m => m.Item.ValidTo)
 </body>
 
-@section Details { }
+@section Details {}

@@ -6,13 +6,21 @@ namespace Abc.Soft.Areas.Quantity.Pages.Units
 {
     public class IndexModel : UnitsPage
     {
-        public IndexModel(IUnitsRepository r, IMeasureRepository m) : base(r, m) { }
+
+        public IndexModel(IUnitsRepository r, IMeasureRepository m) : base(r, m)
+        {
+        }
 
         public async Task OnGetAsync(string sortOrder,
-            string currentFilter, string searchString, int? pageIndex, string fixedFilter, string fixedValue)
+            string currentFilter, string searchString, int? pageIndex,
+            string fixedFilter, string fixedValue)
         {
-            await getList(sortOrder, currentFilter, searchString, pageIndex, fixedFilter, fixedValue);
+
+            await getList(sortOrder, currentFilter, searchString, pageIndex,
+                fixedFilter, fixedValue);
 
         }
+
+
     }
 }

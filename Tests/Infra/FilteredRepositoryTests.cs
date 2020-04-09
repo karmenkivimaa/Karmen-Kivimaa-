@@ -20,7 +20,7 @@ namespace Abc.Tests.Infra
 
             public testClass(DbContext c, DbSet<MeasureData> s) : base(c, s) { }
 
-            protected internal override Measure toDomainObject(MeasureData d) => new Measure(d);
+            protected internal override Measure ToDomainObject(MeasureData d) => new Measure(d);
 
             protected override async Task<MeasureData> getData(string id)
             {
@@ -56,7 +56,7 @@ namespace Abc.Tests.Infra
             => isNullableProperty(() => obj.FixedValue, x => obj.FixedValue = x);
 
         [TestMethod]
-        public void CreateSqlQueryTest()
+        public void createSqlQueryTest()
         {
             var sql = obj.createSqlQuery();
             Assert.IsNotNull(sql);

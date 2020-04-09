@@ -25,10 +25,10 @@ namespace Abc.Infra {
             var query = createSqlQuery();
             var set = await runSqlQueryAsync(query);
 
-            return toDomainObjectsList(set);
+            return ToDomainObjectsList(set);
         }
 
-        internal List<TDomain> toDomainObjectsList(List<TData> set) => set.Select(ToDomainObject).ToList();
+        internal List<TDomain> ToDomainObjectsList(List<TData> set) => set.Select(ToDomainObject).ToList();
 
         protected internal abstract TDomain ToDomainObject(TData periodData);
 
@@ -45,7 +45,7 @@ namespace Abc.Infra {
 
             var d = await getData(id);
 
-            var obj = new TDomain {Data = d};
+            var obj = ToDomainObject(d);
 
             return obj;
         }
@@ -55,7 +55,7 @@ namespace Abc.Infra {
         public async Task Delete(string id) {
             if (id is null) return;
 
-            var v = await dbSet.FindAsync(id);
+            var v = await getData(id);
 
             if (v is null) return;
             dbSet.Remove(v);
@@ -71,7 +71,7 @@ namespace Abc.Infra {
         public async Task Update(TDomain obj)
         {
             if (obj is null) return;
-            var v = await dbSet.FindAsync(getId(obj));
+            var v = await getData(getId(obj));
             if (v is null) return;
             dbSet.Remove(v);
             dbSet.Add(obj.Data);

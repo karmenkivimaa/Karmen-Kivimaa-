@@ -18,7 +18,7 @@ namespace Abc.Tests.Infra
 
             public testClass(DbContext c, DbSet<MeasureData> s) : base(c, s) { }
 
-            protected internal override Measure toDomainObject(MeasureData d) => new Measure(d);
+            protected internal override Measure ToDomainObject(MeasureData d) => new Measure(d);
 
             protected override async Task<MeasureData> getData(string id) => await dbSet.FirstOrDefaultAsync(m => m.Id == id);
 
@@ -37,7 +37,6 @@ namespace Abc.Tests.Infra
                 .UseInMemoryDatabase("TestDb")
                 .Options;
             var c = new QuantityDbContext(options);
-            obj = new testClass(c, c.Measures);
             count = GetRandom.UInt8(20, 40);
             foreach (var p in c.Measures)
                 c.Entry(p).State = EntityState.Deleted;
@@ -110,7 +109,7 @@ namespace Abc.Tests.Infra
                 obj.Add(new Measure(GetRandom.Object<MeasureData>())).GetAwaiter();
         }
 
-        [TestMethod] public void CreateSqlQueryTest()
+        [TestMethod] public void createSqlQueryTest()
         {
             var o = obj.createSqlQuery();
             Assert.IsNotNull(o);

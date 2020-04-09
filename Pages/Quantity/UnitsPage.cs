@@ -1,13 +1,16 @@
-﻿using Abc.Data.Quantity;
+﻿using System.Collections.Generic;
+using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Collections.Generic;
 
 namespace Abc.Pages.Quantity
 {
-    public class UnitsPage : BasePage<IUnitsRepository, Unit, UnitView, UnitData>
+
+    public abstract class UnitsPage : CommonPage<IUnitsRepository, Unit, UnitView, UnitData>
     {
+
+
         protected internal UnitsPage(IUnitsRepository r, IMeasureRepository m) : base(r)
         {
             PageTitle = "Units";
@@ -23,13 +26,14 @@ namespace Abc.Pages.Quantity
             {
                 list.Add(new SelectListItem(m.Data.Name, m.Data.Id));
             }
-
             return list;
         }
 
         public IEnumerable<SelectListItem> Measures { get; }
 
-        public override string ItemId => Item.Id;
+        public override string ItemId => Item?.Id ?? string.Empty;
+
+        protected internal override string getPageUrl() => "/Quantity/Units";
 
         protected internal override string getPageSubTitle()
         {
@@ -47,13 +51,14 @@ namespace Abc.Pages.Quantity
         {
             return UnitViewFactor.Create(obj);
         }
-
         public string GetMeasureName(string measureId)
         {
             foreach (var m in Measures)
-                if (m.Value == measureId) 
+                if (m.Value == measureId)
                     return m.Text;
             return "Unspecified";
         }
+
     }
+
 }
