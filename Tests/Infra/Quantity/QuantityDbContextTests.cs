@@ -86,8 +86,8 @@ namespace Abc.Tests.Infra.Quantity
         [TestMethod] public void UnitsTest() => isNullableProperty(obj, nameof(obj.Units), typeof(DbSet<UnitData>));
 
         [TestMethod]
-        public void SystemsOfUnitsTest() =>
-            isNullableProperty(obj, nameof(obj.SystemsOfUnits), typeof(DbSet<SystemOfUnitsData>));
+        public void SystemOfUnitsTest() =>
+            isNullableProperty(obj, nameof(obj.SystemOfUnits), typeof(DbSet<SystemOfUnitsData>));
 
         [TestMethod]
         public void UnitFactorsTest() =>

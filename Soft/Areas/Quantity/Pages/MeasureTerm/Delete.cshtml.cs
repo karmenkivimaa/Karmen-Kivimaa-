@@ -3,13 +3,13 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Abc.Soft.Areas.Quantity.Pages.MeasureTerms
+namespace Abc.Soft.Areas.Quantity.Pages.MeasureTerm
 {
 
     public class DeleteModel : MeasureTermsPage
     {
 
-        public DeleteModel(IMeasureTermsRepository r) : base(r) { }
+        public DeleteModel(IMeasureTermsRepository r, IMeasureRepository m) : base(r, m) { }
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {

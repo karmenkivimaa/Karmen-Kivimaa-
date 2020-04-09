@@ -35,13 +35,15 @@ namespace Abc.Pages.Extensions
         public const string PartyTypesPageTitle = "Party Types";
         public const string RoleTypesPageTitle = "Role Types";
         public const string RelationTypesPageTitle = "Relation Types";
-        public const string SystemsOfUnitsPageTitle = "Systems Of Units";
+        public const string SystemOfUnitsPageTitle = "System Of Units";
         public const string UnitsPageTitle = "Units";
         public const string CurrenciesPageTitle = "Currencies";
         public const string RateTypesPageTitle = "Rate Types";
         public const string RatesPageTitle = "Day Rates";
         public const string PaymentMethodsPageTitle = "Payment Methods";
         public const string CalculatorPageTitle = "Calculator";
+
+        public const string SelectLinkTitle = "Select";
     }
 
 }

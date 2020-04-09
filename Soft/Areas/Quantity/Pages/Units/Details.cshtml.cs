@@ -9,7 +9,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.Units
     public class DetailsModel : UnitsPage
     {
 
-        public DetailsModel(IUnitsRepository r, IMeasureRepository m) : base(r, m) { }
+        public DetailsModel(IUnitsRepository r, IMeasureRepository m, IUnitTermsRepository t, IUnitFactorRepository f) : base(r, m, t, f) { }
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {

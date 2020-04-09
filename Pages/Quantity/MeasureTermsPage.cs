@@ -1,15 +1,20 @@
 ﻿using Abc.Data.Quantity;
 using Abc.Domain.Quantity;
 using Abc.Facade.Quantity;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace Abc.Pages.Quantity {
 
     public class MeasureTermsPage : CommonPage<IMeasureTermsRepository, MeasureTerm, MeasureTermView, MeasureTermData> {
 
-        protected internal MeasureTermsPage(IMeasureTermsRepository r) : base(r) 
+        protected internal MeasureTermsPage(IMeasureTermsRepository r, IMeasureRepository m) : base(r) 
         {
             PageTitle = "Measure Terms";
+            Measures = createSelectList<Measure, MeasureData>(m);
         }
+
+        public IEnumerable<SelectListItem> Measures { get; }
 
         public override string ItemId 
         {

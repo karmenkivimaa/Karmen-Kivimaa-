@@ -3,13 +3,13 @@ using Abc.Domain.Quantity;
 using Abc.Pages.Quantity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Abc.Soft.Areas.Quantity.Pages.MeasureTerms
+namespace Abc.Soft.Areas.Quantity.Pages.MeasureTerm
 {
 
     public class CreateModel : MeasureTermsPage
     {
 
-        public CreateModel(IMeasureTermsRepository r) : base(r) { }
+        public CreateModel(IMeasureTermsRepository r, IMeasureRepository m) : base(r, m) { }
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)
         {

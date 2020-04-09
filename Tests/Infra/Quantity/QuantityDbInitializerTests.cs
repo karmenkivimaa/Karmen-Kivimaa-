@@ -39,7 +39,7 @@ namespace Abc.Tests.Infra.Quantity {
         [TestMethod]
         public void UnitFactorsTest() => Assert.AreEqual(90, getCount(db.UnitFactors));
         [TestMethod]
-        public void SystemsOfUnitsTest() => Assert.AreEqual(2, getCount(db.SystemsOfUnits));
+        public void SystemOfUnitsTest() => Assert.AreEqual(2, getCount(db.SystemOfUnits));
     }
 
 }

@@ -19,7 +19,7 @@ namespace Abc.Tests.Infra.Quantity
                 .UseInMemoryDatabase("TestDb")
                 .Options;
             db = new QuantityDbContext(options);
-            dbSet = ((QuantityDbContext)db).SystemsOfUnits;
+            dbSet = ((QuantityDbContext)db).SystemOfUnits;
             obj = new SystemOfUnitsRepository((QuantityDbContext)db);
             base.TestInitialize();
         }

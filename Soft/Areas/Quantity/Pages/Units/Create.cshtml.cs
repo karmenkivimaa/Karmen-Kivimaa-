@@ -9,7 +9,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.Units
     public class CreateModel : UnitsPage
     {
 
-        public CreateModel(IUnitsRepository r, IMeasureRepository m) : base(r, m) { }
+        public CreateModel(IUnitsRepository r, IMeasureRepository m, IUnitTermsRepository t, IUnitFactorRepository f) : base(r, m, t, f) { }
 
 
         public IActionResult OnGet(string fixedFilter, string fixedValue)

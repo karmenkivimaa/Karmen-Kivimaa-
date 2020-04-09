@@ -9,7 +9,7 @@ namespace Abc.Soft.Areas.Quantity.Pages.Measures
     public class DeleteModel : MeasuresPage
     {
 
-        public DeleteModel(IMeasureRepository r) : base(r) { }
+        public DeleteModel(IMeasureRepository r, IMeasureTermsRepository t) : base(r, t) { }
 
         public async Task<IActionResult> OnGetAsync(string id, string fixedFilter, string fixedValue)
         {

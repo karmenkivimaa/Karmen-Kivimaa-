@@ -1,4 +1,6 @@
 ﻿@page
+@using Abc.Aids
+@using Abc.Facade.Quantity
 @using Abc.Pages.Extensions
 @model Abc.Soft.Areas.Quantity.Pages.Units.IndexModel
 
@@ -28,10 +30,22 @@
         <tbody>
             @foreach (var item in Model.Items)
             {
+                var selectedRow = "";
+                if (item.Id == Model.SelectedId)
+                {
+                    selectedRow = "alert-success";
+                    Model.LoadDetails(item);
+                }
                 <tr>
-                    @Html.TableRowFor(
+                    class=@selectedRow>
+                    @Html.TableRowWithSelectFor(
                         page,
                         item.Id,
+                        Model.SortOrder,
+                        Model.SearchString,
+                        Model.PageIndex,
+                        Model.FixedFilter,
+                        Model.FixedValue,
                         Html.DisplayFor(modelItem => item.Id),
                         Html.Raw(Model.GetMeasureName(item.MeasureId)),
                         Html.DisplayFor(modelItem => item.Name),
@@ -44,4 +58,28 @@
             }
         </tbody>
     </table>
+    @if (Model.Terms.Count != 0)
+    {
+        <h3>Terms for Selected Unit </h3>
+        <table class="table">
+            <tr>
+                <th>@(GetMember.DisplayName<UnitTermView>(x => x.MasterId))</th>
+                <th>@(GetMember.DisplayName<UnitTermView>(x => x.TermId))</th>
+                <th>@(GetMember.DisplayName<UnitTermView>(x => x.Power))</th>
+                <th>@(GetMember.DisplayName<UnitTermView>(x => x.ValidFrom))</th>
+                <th>@(GetMember.DisplayName<UnitTermView>(x => x.ValidTo))</th>
+            </tr>
+
+            @foreach (var item in Model.Terms)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.MasterId)</td>
+                    <td> @Html.DisplayFor(modelItem => item.TermId)</td>
+                    <td> @Html.DisplayFor(modelItem => item.Power)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ValidFrom)</td>
+                    <td> @Html.DisplayFor(modelItem => item.ValidTo)</td>
+                </tr>
+            }
+        </table>
+    }
 </body>
